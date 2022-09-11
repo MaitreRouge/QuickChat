@@ -4,7 +4,7 @@
         <div class="cell -3of12">
             <div style="position: sticky;" class="menu">
                 @for ($i=0;$i<27;$i++)
-                    <a class="menu-item">MM503147<br> (172.17.2.{{ $i+1 }}) 123456789123456789</a>
+                    <a class="menu-item">MM503147 (172.17.2.{{ $i+1 }})</a>
                 @endfor
             </div>
         </div>
