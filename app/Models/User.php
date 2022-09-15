@@ -14,33 +14,23 @@ class User extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    public $timestamps = false;
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
+    protected $guarded = [];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
+    /*
+     * Model variables
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+
+    public int $id; //autoincrement
+    public ?string $firstname;
+    public ?string $lastname;
+    public ?string $glpi_user;
+    public string $username;
+    public string $ip;
+
+    public function getShortName()
+    {
+        return strtolower($this->firstname) . " " . ucfirst(substr($this->lastname, 0,1));
+    }
 }
