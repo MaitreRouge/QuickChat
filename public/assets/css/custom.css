@@ -1,3 +1,9 @@
 .main {
     padding: 20px 10px;
 }
+
+.sub_div {
+    position: fixed;
+    bottom: 0px;
+    z-index: 50;
+}
