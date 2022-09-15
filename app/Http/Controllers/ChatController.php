@@ -68,7 +68,8 @@ class ChatController extends BaseController
                     //there is actually a 6th option, "noAUTO" (set to 1), i still don't know what for... Btw this option doesn't show up all the time
                 ]);
 
-//            dump($loginGLPI->redirect(), $loginGLPI->cookies()->toArray());
+            //as soon as we're finished with the password, we unset it to prevent any leaks nor trust issues
+            unset($request->glpi_password);
 
             if (!($loginGLPI->cookies()->toArray()[1]['Name'] === $loginGLPI->cookies()->toArray()[0]['Name'] . "_rememberme")) {
                 //We don't have the rememberme cookie then connection failed
